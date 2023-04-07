@@ -1,5 +1,5 @@
-import LoginScreen from "./src/screens/LoginScreen";
-// import RegistrationScreen from "./src/screens/RegistrationScreen";
+// import LoginScreen from "./src/screens/LoginScreen";
+import RegistrationScreen from "./src/screens/RegistrationScreen";
 import { StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -26,8 +26,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <RegistrationScreen /> */}
-      <LoginScreen />
+      <RegistrationScreen />
+      {/* <LoginScreen /> */}
     </View>
   );
 }
