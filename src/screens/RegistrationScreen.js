@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   TouchableWithoutFeedback,
@@ -14,8 +15,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
-import * as Font from "expo-font";
-import AppLoading from "expo-app-loading";
+
 
 const initialState = {
   login: "",
@@ -23,16 +23,10 @@ const initialState = {
   password: "",
 };
 
-const loadApplication = async () => {
-  await Font.loadAsync({
-    "Roboto-Regular": require("../fonts/Roboto-Regular.ttf"),
-  });
-};
 
 const RegistrationScreen = () => {
   const [isShownKeyboard, setIsShownKeyboard] = useState(false);
   const [state, setState] = useState(initialState);
-  const [iasReady, setIasReady] = useState(false);
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
   const [isEmail, setIsEmail] = useState(false);
@@ -50,15 +44,7 @@ const RegistrationScreen = () => {
     console.log(state);
     setState(initialState);
   };
-  if (!iasReady) {
-    return (
-      <AppLoading
-        startAsync={loadApplication}
-        onFinish={() => setIasReady(true)}
-        onError={console.warn}
-      />
-    );
-  }
+
 
   return (
     <TouchableWithoutFeedback onPress={keyboardHide}>

@@ -15,24 +15,15 @@ import {
   useWindowDimensions,
 } from "react-native";
 
-import * as Font from "expo-font";
-import AppLoading from "expo-app-loading";
-
 const initialState = {
   email: "",
   password: "",
 };
 
-const loadApplication = async () => {
-  await Font.loadAsync({
-    "Roboto-Regular": require("../fonts/Roboto-Regular.ttf"),
-  });
-};
-
 const LoginScreen = () => {
   const [state, setState] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(true);
-  const [iasReady, setIasReady] = useState(false);
+
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
@@ -49,16 +40,6 @@ const LoginScreen = () => {
     console.log(state);
     setState(initialState);
   };
-
-  if (!iasReady) {
-    return (
-      <AppLoading
-        startAsync={loadApplication}
-        onFinish={() => setIasReady(true)}
-        onError={console.warn}
-      />
-    );
-  }
 
   return (
     <TouchableWithoutFeedback onPress={keyboardHide}>
